@@ -122,13 +122,24 @@ abstract class Model extends IlluminateModel {
 
     /**
      * @override
-     * Get the table associated with the model.
+     * Get the table associated with the model as an array.
+     *
+     * @return string
+     */
+    public function getTableArray()
+    {
+        return $this->getDefaultNodeLabel();
+    }
+
+    /**
+     * @override
+     * Get the table associated with the model (recent versions of laravel builder require this as a string when saving).
      *
      * @return string
      */
     public function getTable()
     {
-        return $this->getDefaultNodeLabel();
+        return $this->getLabel();
     }
 
     /**
